@@ -2,7 +2,7 @@ import { BubbleSort } from "../Classes/BubbleSort";
 import { InsertionSort } from "../Classes/InsertionSort";
 import { MergeSort } from "../Classes/MergeSort";
 
-export type sortClasses = {
+export type TsortClasses = {
     MergeSort: MergeSort;
     BubbleSort: BubbleSort;
     InsertionSort: InsertionSort;
@@ -20,7 +20,7 @@ export const sortClasses = {
     InsertionSort: InsertionSort,
 };
 
-export type unionSortClasses = ValueOf<sortClasses>;
+export type unionSortClasses = ValueOf<TsortClasses>;
 
 type ValueOf<T> = T[keyof T];
 
