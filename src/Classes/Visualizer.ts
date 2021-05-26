@@ -1,6 +1,5 @@
 import { AnimationFrame, NodeType, NodeTypeColorCodes } from "../interfaces/genericInterfaces";
 import * as helperFns from "../helpers/helperFunctions";
-import { RefObject } from "react";
 
 export default class Visualizer {
     private nodeCount: number;

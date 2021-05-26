@@ -1,34 +1,32 @@
 import * as React from "react";
 import "./App.css";
-import VisualizationCanvas from "./Components/VisualizationCanvas";
-import { SortTypes } from "./interfaces/genericInterfaces";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import Home from "./Containers/Home";
+import NavigationBar from "./Components/NavigationBar";
+import Mergesort from "./Containers/Mergesort";
+import { Container } from "@material-ui/core";
 
 function App() {
     return (
-        <div className="App">
-            <VisualizationCanvas sortType={SortTypes.MergeSort}>
-                {(sort) => (
-                    <div>
-                        <button
-                            onClick={() => {
-                                console.log(sort);
-                                sort?.initialize();
-                            }}
-                        >
-                            Load Bars
-                        </button>
-                        <button
-                            onClick={() => {
-                                console.log(sort);
-                                sort?.start();
-                            }}
-                        >
-                            Start Animation
-                        </button>
-                    </div>
-                )}
-            </VisualizationCanvas>
-        </div>
+        <BrowserRouter>
+            <NavigationBar />
+            <Container>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route exact path="/mergesort">
+                        <Mergesort />
+                    </Route>
+                    <Route exact path="/bubblesort">
+                        <Home />
+                    </Route>
+                    <Route exact path="/insertionsort">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Container>
+        </BrowserRouter>
     );
 }
 

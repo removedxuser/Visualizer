@@ -1,0 +1,15 @@
+.root {
+    height: 120px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.root:hover {
+    transition: 0.3s ease;
+    background-color: rgb(158, 77, 77);
+    color: white;
+    font-size: 20px;
+}
