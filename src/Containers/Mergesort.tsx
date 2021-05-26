@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import React from "react";
 import { MergeSort } from "../Classes/MergeSort";
 import { CTypography } from "../Components/CTypography";
