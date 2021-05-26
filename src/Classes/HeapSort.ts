@@ -36,7 +36,6 @@ export class HeapSort {
         if (lc.node && lc.node > arr[largestNodeIndex]) {
             largestNodeIndex = lc.index;
         }
-        debugger;
         if (rc.node && rc.node > arr[largestNodeIndex]) {
             largestNodeIndex = rc.index;
         }

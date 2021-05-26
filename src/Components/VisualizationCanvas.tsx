@@ -6,15 +6,16 @@ const { useEffect, useState, useRef } = React;
 interface Props<T> {
     children: (instance: T | null) => React.ReactNode;
     sortType: SortTypes;
+    initialNodes?: number;
 }
 
-function VisualizationCanvas<T>({ children, sortType }: Props<T>) {
+function VisualizationCanvas<T>({ children, sortType, initialNodes = 100 }: Props<T>) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [sortState, setSortState] = useState<unionSortClasses | null>(null);
 
     useEffect(() => {
         if (canvasRef.current) {
-            const sortClass = new sortClasses[sortType](1000, canvasRef.current);
+            const sortClass = new sortClasses[sortType](initialNodes, canvasRef.current);
             sortClass.initialize();
             setSortState(sortClass);
         }

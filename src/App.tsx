@@ -5,6 +5,8 @@ import Home from "./Containers/Home";
 import NavigationBar from "./Components/NavigationBar";
 import Mergesort from "./Containers/Mergesort";
 import { Container } from "@material-ui/core";
+import Bubblesort from "./Containers/Bubblesort";
+import Insertionsort from "./Containers/Insertionsort";
 
 function App() {
     return (
@@ -19,10 +21,10 @@ function App() {
                         <Mergesort />
                     </Route>
                     <Route exact path="/bubblesort">
-                        <Home />
+                        <Bubblesort />
                     </Route>
                     <Route exact path="/insertionsort">
-                        <Home />
+                        <Insertionsort />
                     </Route>
                 </Switch>
             </Container>
