@@ -22,15 +22,15 @@ function VisualizationCanvas<T>({ children, sortType, initialNodes = 100 }: Prop
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
+        <>
             <canvas
                 ref={canvasRef}
-                height="500px"
+                height="400px"
                 width="800px"
-                style={{ border: "1px solid black" }}
+                style={{ border: "1px solid lightgrey" }}
             ></canvas>
             <div>{children(sortState as unknown as T)}</div>
-        </div>
+        </>
     );
 }
 

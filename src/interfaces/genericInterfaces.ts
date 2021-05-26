@@ -35,9 +35,9 @@ export enum NodeType {
 export const NodeTypeColorCodes = {
     [NodeType.visiting]: "#ff8303",
     [NodeType.sorted]: "#81b214",
-    [NodeType.comparing]: "#583d72",
+    [NodeType.comparing]: "#564a4a",
     [NodeType.swapping]: "#ffaaa7",
-    [NodeType.default]: "#AEC6CF",
+    [NodeType.default]: "#4aa96c",
 };
 
 export interface AnimationFrame {
