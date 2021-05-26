@@ -24,14 +24,14 @@ export class MergeSort extends Visualizer {
 
         while (i < lArr.length && j < rArr.length) {
             if (lArr[i] < rArr[j]) {
-                this.addAnimationFrame({
+                super.addAnimationFrame({
                     nodes: arr.slice(0),
                     [NodeType.comparing]: [lo + i, mid + 1 + j],
                 });
                 arr[k] = lArr[i];
                 i++;
             } else {
-                this.addAnimationFrame({
+                super.addAnimationFrame({
                     nodes: arr.slice(0),
                     [NodeType.comparing]: [lo + i, mid + 1 + j],
                 });
@@ -41,13 +41,13 @@ export class MergeSort extends Visualizer {
             k++;
         }
         while (i < lArr.length) {
-            this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [lo + i] });
+            super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [lo + i] });
             arr[k] = lArr[i];
             i++;
             k++;
         }
         while (j < rArr.length) {
-            this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [mid + j + 1] });
+            super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [mid + j + 1] });
             arr[k] = rArr[j];
             j++;
             k++;
@@ -65,7 +65,7 @@ export class MergeSort extends Visualizer {
     private sort() {
         const toSort = this.state.slice(0);
         this.mergeSort(toSort, 0, toSort.length - 1);
-        this.addAnimationFrame({
+        super.addAnimationFrame({
             nodes: toSort.slice(0),
             [NodeType.sorted]: toSort.map((_, i) => i),
         });

@@ -12,7 +12,7 @@ export class InsertionSort extends Visualizer {
         const arr = this.state.slice(0);
         for (let i = 1; i < arr.length; i++) {
             let k = i;
-            this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
+            super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
             while (arr[k] < arr[k - 1]) {
                 this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
                 this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.swapping]: [k, k - 1] });
@@ -20,7 +20,7 @@ export class InsertionSort extends Visualizer {
                 k--;
             }
         }
-        this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.sorted]: arr.map((_, i) => i) });
+        super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.sorted]: arr.map((_, i) => i) });
         return this;
     }
 }
