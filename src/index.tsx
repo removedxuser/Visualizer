@@ -11,8 +11,12 @@ const theme = createMuiTheme({
         primary: {
             main: "#1f441e",
         },
+        text: {
+            secondary: "#ffffff",
+        },
         secondary: {
             main: "#FFD6C",
+            contrastText: "white",
         },
     },
     typography: {
@@ -29,6 +33,9 @@ const theme = createMuiTheme({
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
         ].join(","),
+        allVariants: {
+            color: "white",
+        },
     },
 });
 

@@ -34,10 +34,10 @@ export enum NodeType {
 
 export const NodeTypeColorCodes = {
     [NodeType.visiting]: "#ff8303",
-    [NodeType.sorted]: "#81b214",
+    [NodeType.sorted]: "rgba(89, 181, 123, 0.2)",
     [NodeType.comparing]: "#564a4a",
     [NodeType.swapping]: "#ffaaa7",
-    [NodeType.default]: "#4aa96c",
+    [NodeType.default]: "rgba(89, 181, 123, 0.8)",
 };
 
 export interface AnimationFrame {

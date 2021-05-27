@@ -1,16 +1,23 @@
 import { Box, Button } from "@material-ui/core";
 import React from "react";
 import { BubbleSort } from "../Classes/BubbleSort";
-import { CTypography } from "../Components/CTypography";
+import { generateCrumbs } from "../Components/BreadcrumbNavigation";
+import { CTypographyWithBreadcrumbs } from "../Components/HeaderComponents";
 import VisualizationCanvas from "../Components/VisualizationCanvas";
 import { SortTypes } from "../interfaces/genericInterfaces";
+
+const crumbs = generateCrumbs({
+    crumbLabel: "Bubble Sort",
+    active: true,
+    href: "/bubblesort",
+});
+
+console.log(crumbs);
 
 export default function Mergesort() {
     return (
         <Box>
-            <CTypography style={{ fontSize: "2rem", fontWeight: 700, padding: "8px 0 8px 0" }}>
-                Bubble Sort
-            </CTypography>
+            <CTypographyWithBreadcrumbs crumbs={crumbs}>Bubble Sort</CTypographyWithBreadcrumbs>
             <VisualizationCanvas<BubbleSort> sortType={SortTypes.BubbleSort}>
                 {(instance) => (
                     <Button

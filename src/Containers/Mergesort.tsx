@@ -1,16 +1,27 @@
 import { Box, Button } from "@material-ui/core";
 import React from "react";
 import { MergeSort } from "../Classes/MergeSort";
-import { CTypography } from "../Components/CTypography";
+import { generateCrumbs } from "../Components/BreadcrumbNavigation";
+import { CTypographyWithBreadcrumbs } from "../Components/HeaderComponents";
 import VisualizationCanvas from "../Components/VisualizationCanvas";
 import { SortTypes } from "../interfaces/genericInterfaces";
+
+const crumbs = generateCrumbs({
+    crumbLabel: "Merge Sort",
+    active: true,
+    href: "/mergesort",
+});
 
 export default function Mergesort() {
     return (
         <Box>
-            <CTypography style={{ fontSize: "2rem", fontWeight: 700, padding: "8px 0 8px 0" }}>
-                Merge Sort
-            </CTypography>
+            <Box py="8px">
+                <CTypographyWithBreadcrumbs crumbs={crumbs}>
+                    <Box fontSize="2rem" component="span">
+                        Merge Sort
+                    </Box>
+                </CTypographyWithBreadcrumbs>
+            </Box>
             <VisualizationCanvas<MergeSort> sortType={SortTypes.MergeSort}>
                 {(instance) => (
                     <Box mt="8px">

@@ -9,7 +9,11 @@ interface Props<T> {
     initialNodes?: number;
 }
 
-function VisualizationCanvas<T>({ children, sortType, initialNodes = 100 }: Props<T>) {
+export default function VisualizationCanvas<T>({
+    children,
+    sortType,
+    initialNodes = 100,
+}: Props<T>) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const [sortState, setSortState] = useState<unionSortClasses | null>(null);
 
@@ -25,13 +29,11 @@ function VisualizationCanvas<T>({ children, sortType, initialNodes = 100 }: Prop
         <>
             <canvas
                 ref={canvasRef}
-                height="400px"
+                height="370px"
                 width="800px"
-                style={{ border: "1px solid lightgrey" }}
+                style={{ border: "1px solid grey" }}
             ></canvas>
             <div>{children(sortState as unknown as T)}</div>
         </>
     );
 }
-
-export default VisualizationCanvas;

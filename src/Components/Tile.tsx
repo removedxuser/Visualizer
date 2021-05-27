@@ -14,4 +14,6 @@ function Tile(props: Props & PaperProps) {
     );
 }
 
-export default React.memo(Tile);
+const memoizedTile = React.memo(Tile);
+
+export { memoizedTile as Tile };

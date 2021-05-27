@@ -6,7 +6,7 @@ import Mergesort from "./Containers/Mergesort";
 import { Box, Container } from "@material-ui/core";
 import Bubblesort from "./Containers/Bubblesort";
 import Insertionsort from "./Containers/Insertionsort";
-import SearchAppBar from "./Components/SearchAppBar";
+import { SearchAppBar } from "./Components/SearchAppBar";
 
 function App() {
     return (
@@ -14,7 +14,7 @@ function App() {
             <Box height="65px">
                 <SearchAppBar />
             </Box>
-            <Box height="calc(100vh - 65px)">
+            <Box height="calc(100vh - 65px)" className="texturedBackground">
                 <Container>
                     <Switch>
                         <Route exact path="/">

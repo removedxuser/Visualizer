@@ -1,7 +1,7 @@
 import { Box } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router";
-import Tile from "../Components/Tile";
+import { Tile } from "../Components/Tile";
 
 const __sortMetaData__: Array<{ name: string; route: string }> = [
     {
