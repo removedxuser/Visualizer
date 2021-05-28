@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
+            backgroundColor: "rgba(0,0,0,0.1)",
         },
         title: {
             flexGrow: 1,
@@ -66,7 +67,7 @@ function SearchAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar>
+            <AppBar style={{ backgroundColor: "rgba(27,31,35,0.8)" }}>
                 <Container>
                     <Toolbar
                         style={{

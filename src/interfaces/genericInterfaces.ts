@@ -39,8 +39,8 @@ export enum NodeType {
 export const NodeTypeColorCodes = {
     [NodeType.visiting]: "#ff8303",
     [NodeType.sorted]: "rgba(89, 181, 123, 0.2)",
-    [NodeType.comparing]: "#564a4a",
-    [NodeType.swapping]: "white",
+    [NodeType.comparing]: "#8b0000",
+    [NodeType.swapping]: "yellow",
     [NodeType.default]: "rgba(89, 181, 123, 0.8)",
 };
 
@@ -49,4 +49,9 @@ export interface AnimationFrame {
     comparing?: Array<number>;
     sorted?: Array<number>;
     swapping?: Array<number>;
+}
+
+export enum ComputationalTrackerNode {
+    Comparison = "zxxxx2327comparisonnode",
+    Swap = "zxxxx2327swapnode",
 }

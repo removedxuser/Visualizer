@@ -12,7 +12,7 @@ import Heapsort from "./Containers/Heapsort";
 function App() {
     return (
         <BrowserRouter>
-            <Box height="65px">
+            <Box height="65px" className="texturedBackground">
                 <SearchAppBar />
             </Box>
             <Box height="calc(100vh - 65px)" className="texturedBackground">

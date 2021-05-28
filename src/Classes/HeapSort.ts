@@ -28,12 +28,19 @@ export class HeapSort extends Visualizer {
     private heapify<T>(arr: Array<T>, size: number, i: number) {
         let largestNode = i;
         const [lc, rc] = [this.lcNode(largestNode), this.rcNode(largestNode)];
+
         if (lc < size && arr[lc] > arr[largestNode]) {
             largestNode = lc;
         }
+
         if (rc < size && arr[rc] > arr[largestNode]) {
             largestNode = rc;
         }
+
+        super.addAnimationFrame({
+            nodes: this.arr.slice(0),
+            [NodeType.comparing]: [largestNode, i],
+        });
         if (largestNode !== i) {
             super.addAnimationFrame({
                 nodes: this.arr.slice(0),
@@ -51,10 +58,6 @@ export class HeapSort extends Visualizer {
         }
 
         for (let i = 1; i < this.arr.length; i++) {
-            super.addAnimationFrame({
-                nodes: this.arr.slice(0),
-                [NodeType.swapping]: [1, this.arr.length - i],
-            });
             helperFns.swap(1, this.arr.length - i, this.arr);
             this.heapify(this.arr, this.arr.length - i, 1);
         }

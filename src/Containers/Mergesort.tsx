@@ -1,7 +1,8 @@
-import { Box, Button } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import React from "react";
 import { MergeSort } from "../Classes/MergeSort";
 import { generateCrumbs } from "../Components/BreadcrumbNavigation";
+import Controls from "../Components/Controls";
 import { CTypographyWithBreadcrumbs } from "../Components/HeaderComponents";
 import VisualizationCanvas from "../Components/VisualizationCanvas";
 import { SortTypes } from "../interfaces/genericInterfaces";
@@ -25,17 +26,7 @@ export default function Mergesort() {
             <VisualizationCanvas<MergeSort> sortType={SortTypes.MergeSort} initialNodes={500}>
                 {(instance) => (
                     <Box mt="8px">
-                        <Button
-                            color="primary"
-                            variant="contained"
-                            onClick={() => {
-                                if (instance) {
-                                    instance.start();
-                                }
-                            }}
-                        >
-                            Sort
-                        </Button>
+                        <Controls instance={instance} />
                     </Box>
                 )}
             </VisualizationCanvas>

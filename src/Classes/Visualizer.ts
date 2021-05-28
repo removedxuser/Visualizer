@@ -1,4 +1,9 @@
-import { AnimationFrame, NodeType, NodeTypeColorCodes } from "../interfaces/genericInterfaces";
+import {
+    AnimationFrame,
+    ComputationalTrackerNode,
+    NodeType,
+    NodeTypeColorCodes,
+} from "../interfaces/genericInterfaces";
 import * as helperFns from "../helpers/helperFunctions";
 
 export default class Visualizer {
@@ -12,6 +17,8 @@ export default class Visualizer {
     private animationFrames: Array<AnimationFrame> = [];
     public isPaused: boolean = false;
     protected readonly state: Array<number>;
+    private swapCount = 0;
+    private comparisonCount = 0;
 
     constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
         this.nodeCount = nodeCount;
@@ -36,12 +43,14 @@ export default class Visualizer {
         swapping,
     }: Omit<AnimationFrame & { currIdx: number }, "nodes">): NodeType {
         if (!helperFns.isEmpty(comparing) && comparing?.includes(currIdx)) {
+            this.updateComparison();
             return NodeType.comparing;
         }
         if (!helperFns.isEmpty(sorted) && sorted?.includes(currIdx)) {
             return NodeType.sorted;
         }
         if (!helperFns.isEmpty(swapping) && swapping?.includes(currIdx)) {
+            this.updateSwap();
             return NodeType.swapping;
         }
         return NodeType.default;
@@ -110,6 +119,22 @@ export default class Visualizer {
     public clear() {
         this.cx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         return this;
+    }
+
+    public updateSwap() {
+        this.swapCount++;
+        const swapNode = document.getElementById(ComputationalTrackerNode.Swap);
+        if (swapNode) {
+            swapNode.innerHTML = this.swapCount.toString();
+        }
+    }
+
+    public updateComparison() {
+        this.comparisonCount++;
+        const comparisonNode = document.getElementById(ComputationalTrackerNode.Comparison);
+        if (comparisonNode) {
+            comparisonNode.innerHTML = this.comparisonCount.toString();
+        }
     }
 
     public pause() {
