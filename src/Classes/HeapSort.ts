@@ -2,51 +2,65 @@ import { NodeType } from "../interfaces/genericInterfaces";
 import Visualizer from "./Visualizer";
 import * as helperFns from "../helpers/helperFunctions";
 
-export class HeapSort {
-    arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+export class HeapSort extends Visualizer {
+    private arr: Array<number> = [];
 
-    // constructor(nodeCount: number, canvasId: string, state?: Array<number>) {
-    //     super(nodeCount, canvasId, state);
-    //     this.sort();
-    // }
-
-    // [1,2,3,4,10,6,7,8,9,5];
-    /* 
-                            1
-                    2               3
-                4       10       6       7
-             8    9   5
-    */
-
-    private parentNode<T>(arr: Array<T>, index: number): { node: T | undefined; index: number } {
-        return { node: arr[Math.floor((index + 1) / 2)], index: Math.floor(index / 2) };
+    constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
+        super(nodeCount, canvas, state);
+        this.arr = super.getState().slice();
+        this.arr.unshift(-1);
+        this.sort();
     }
 
-    private rightChild<T>(arr: Array<T>, index: number): { node: T | undefined; index: number } {
-        return { node: arr[index * 2 + 2], index: index * 2 + 2 };
+    private pNode(i: number) {
+        return i / 2;
     }
 
-    private leftChild<T>(arr: Array<T>, index: number): { node: T | undefined; index: number } {
-        return { node: arr[index * 2 + 1], index: index * 2 + 1 };
+    private lcNode(i: number) {
+        return i * 2;
     }
 
-    private buildHeapInstance<T>(arr: Array<T>, index: number): void {
-        let largestNodeIndex = index;
-        const [lc, rc] = [this.leftChild(arr, index), this.rightChild(arr, index)];
-        if (lc.node && lc.node > arr[largestNodeIndex]) {
-            largestNodeIndex = lc.index;
+    private rcNode(i: number) {
+        return i * 2 + 1;
+    }
+
+    // size = size of array, i = index of node to run heapify on its branch
+    private heapify<T>(arr: Array<T>, size: number, i: number) {
+        let largestNode = i;
+        const [lc, rc] = [this.lcNode(largestNode), this.rcNode(largestNode)];
+        if (lc < size && arr[lc] > arr[largestNode]) {
+            largestNode = lc;
         }
-        if (rc.node && rc.node > arr[largestNodeIndex]) {
-            largestNodeIndex = rc.index;
+        if (rc < size && arr[rc] > arr[largestNode]) {
+            largestNode = rc;
         }
-        if (largestNodeIndex !== index) {
-            helperFns.swap<T>(index, largestNodeIndex, arr);
+        if (largestNode !== i) {
+            super.addAnimationFrame({
+                nodes: this.arr.slice(0),
+                [NodeType.swapping]: [largestNode, i],
+            });
+            helperFns.swap(largestNode, i, arr);
+            this.heapify(arr, size, largestNode);
         }
     }
-
-    // private heapify<T>(arr: Array<T>, nodeIndex: number): Array<T> {}
 
     public sort() {
-        this.buildHeapInstance(this.arr, 4);
+        const largestNonLeafNode = Math.floor(this.arr.length / 2);
+        for (let i = largestNonLeafNode; i > 0; i--) {
+            this.heapify(this.arr, this.arr.length, i);
+        }
+
+        for (let i = 1; i < this.arr.length; i++) {
+            super.addAnimationFrame({
+                nodes: this.arr.slice(0),
+                [NodeType.swapping]: [1, this.arr.length - i],
+            });
+            helperFns.swap(1, this.arr.length - i, this.arr);
+            this.heapify(this.arr, this.arr.length - i, 1);
+        }
+        super.addAnimationFrame({
+            nodes: this.arr.slice(0),
+            [NodeType.sorted]: this.arr.map((_, i) => i),
+        });
     }
 }

@@ -39,6 +39,7 @@ function BreadCrumbs(props: Props) {
                     color="textSecondary"
                     href={href}
                     style={!active ? { color: "lightgrey" } : {}}
+                    key={crumbLabel}
                 >
                     {crumbLabel}
                 </Link>

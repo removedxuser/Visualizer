@@ -16,13 +16,17 @@ const __sortMetaData__: Array<{ name: string; route: string }> = [
         name: "Insertion Sort",
         route: "/insertionsort",
     },
+    {
+        name: "Heap Sort",
+        route: "/heapsort",
+    },
 ];
 
 export default function Home() {
     const history = useHistory();
 
     return (
-        <Box display="flex" justifyContent="space-between" pt="16px">
+        <Box display="flex" justifyContent="space-between" pt="16px" flexWrap="wrap">
             {__sortMetaData__.map(({ name, route }) => (
                 <Tile
                     onClick={() => {

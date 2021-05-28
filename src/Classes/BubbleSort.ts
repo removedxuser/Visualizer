@@ -12,7 +12,7 @@ export class BubbleSort extends Visualizer {
         const arr = this.state.slice();
         for (let i = 0; i < arr.length - 1; i++) {
             for (let j = 0; j < arr.length - i - 1; j++) {
-                super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [j, j + 1] });
+                // super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [j, j + 1] });
                 if (arr[j] > arr[j + 1]) {
                     this.addAnimationFrame({
                         nodes: arr.slice(0),

@@ -22,7 +22,7 @@ export default function Mergesort() {
                     </Box>
                 </CTypographyWithBreadcrumbs>
             </Box>
-            <VisualizationCanvas<MergeSort> sortType={SortTypes.MergeSort}>
+            <VisualizationCanvas<MergeSort> sortType={SortTypes.MergeSort} initialNodes={500}>
                 {(instance) => (
                     <Box mt="8px">
                         <Button

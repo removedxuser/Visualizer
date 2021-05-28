@@ -7,6 +7,7 @@ import { Box, Container } from "@material-ui/core";
 import Bubblesort from "./Containers/Bubblesort";
 import Insertionsort from "./Containers/Insertionsort";
 import { SearchAppBar } from "./Components/SearchAppBar";
+import Heapsort from "./Containers/Heapsort";
 
 function App() {
     return (
@@ -28,6 +29,9 @@ function App() {
                         </Route>
                         <Route exact path="/insertionsort">
                             <Insertionsort />
+                        </Route>
+                        <Route exact path="/heapsort">
+                            <Heapsort />
                         </Route>
                     </Switch>
                 </Container>

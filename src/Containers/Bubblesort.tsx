@@ -12,13 +12,17 @@ const crumbs = generateCrumbs({
     href: "/bubblesort",
 });
 
-console.log(crumbs);
-
 export default function Mergesort() {
     return (
         <Box>
-            <CTypographyWithBreadcrumbs crumbs={crumbs}>Bubble Sort</CTypographyWithBreadcrumbs>
-            <VisualizationCanvas<BubbleSort> sortType={SortTypes.BubbleSort}>
+            <Box py="8px">
+                <CTypographyWithBreadcrumbs crumbs={crumbs}>
+                    <Box fontSize="2rem" component="span">
+                        Bubble Sort
+                    </Box>
+                </CTypographyWithBreadcrumbs>
+            </Box>
+            <VisualizationCanvas<BubbleSort> sortType={SortTypes.BubbleSort} initialNodes={350}>
                 {(instance) => (
                     <Button
                         color="primary"

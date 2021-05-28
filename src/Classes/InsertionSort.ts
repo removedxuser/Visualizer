@@ -12,9 +12,9 @@ export class InsertionSort extends Visualizer {
         const arr = this.state.slice(0);
         for (let i = 1; i < arr.length; i++) {
             let k = i;
-            super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
+            // super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
             while (arr[k] < arr[k - 1]) {
-                this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
+                // this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.comparing]: [k, k - 1] });
                 this.addAnimationFrame({ nodes: arr.slice(0), [NodeType.swapping]: [k, k - 1] });
                 helperFns.swap(k, k - 1, arr);
                 k--;

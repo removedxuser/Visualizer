@@ -30,7 +30,7 @@ export default function VisualizationCanvas<T>({
             <canvas
                 ref={canvasRef}
                 height="370px"
-                width="800px"
+                width="1000px"
                 style={{ border: "1px solid grey" }}
             ></canvas>
             <div>{children(sortState as unknown as T)}</div>
