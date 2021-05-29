@@ -2,8 +2,11 @@ import { NodeType } from "../interfaces/genericInterfaces";
 import Visualizer from "./Visualizer";
 
 export class MergeSort extends Visualizer {
+    arr: Array<number> = [];
+
     constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
         super(nodeCount, canvas, state);
+        this.arr = super.getState().slice();
         this.sort();
     }
 
@@ -63,11 +66,17 @@ export class MergeSort extends Visualizer {
     }
 
     private sort() {
-        const toSort = this.state.slice(0);
+        const toSort = this.arr;
         this.mergeSort(toSort, 0, toSort.length - 1);
         super.addAnimationFrame({
             nodes: toSort.slice(0),
             [NodeType.sorted]: toSort.map((_, i) => i),
         });
+    }
+
+    public reinitialize() {
+        super.clearAnimationFrames();
+        this.arr = super.getState().slice();
+        this.sort();
     }
 }

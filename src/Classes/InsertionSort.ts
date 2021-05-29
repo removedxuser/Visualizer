@@ -3,8 +3,11 @@ import * as helperFns from "../helpers/helperFunctions";
 import { NodeType } from "../interfaces/genericInterfaces";
 
 export class InsertionSort extends Visualizer {
+    arr: Array<number> = [];
+
     constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
         super(nodeCount, canvas, state);
+        this.arr = super.getState().slice();
         this.sort();
     }
 
@@ -21,5 +24,11 @@ export class InsertionSort extends Visualizer {
         }
         super.addAnimationFrame({ nodes: arr.slice(0), [NodeType.sorted]: arr.map((_, i) => i) });
         return this;
+    }
+
+    public reinitialize() {
+        super.clearAnimationFrames();
+        this.arr = super.getState().slice();
+        this.sort();
     }
 }

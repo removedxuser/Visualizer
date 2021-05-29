@@ -26,7 +26,11 @@ export default function Mergesort() {
             <VisualizationCanvas<BubbleSort> sortType={SortTypes.BubbleSort} initialNodes={350}>
                 {(instance) => (
                     <Box mt="8px">
-                        <Controls instance={instance} />
+                        <Controls
+                            instance={instance}
+                            defaultValues={{ size: 200, speed: 100 }}
+                            maxValues={{ size: 200, speed: 100 }}
+                        />
                     </Box>
                 )}
             </VisualizationCanvas>

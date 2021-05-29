@@ -51,7 +51,7 @@ export class HeapSort extends Visualizer {
         }
     }
 
-    public sort() {
+    private sort() {
         const largestNonLeafNode = Math.floor(this.arr.length / 2);
         for (let i = largestNonLeafNode; i > 0; i--) {
             this.heapify(this.arr, this.arr.length, i);
@@ -59,11 +59,22 @@ export class HeapSort extends Visualizer {
 
         for (let i = 1; i < this.arr.length; i++) {
             helperFns.swap(1, this.arr.length - i, this.arr);
+            super.addAnimationFrame({
+                nodes: this.arr.slice(0),
+                [NodeType.swapping]: [this.arr.length - i, 1],
+            });
             this.heapify(this.arr, this.arr.length - i, 1);
         }
         super.addAnimationFrame({
             nodes: this.arr.slice(0),
             [NodeType.sorted]: this.arr.map((_, i) => i),
         });
+    }
+
+    public reinitialize() {
+        super.clearAnimationFrames();
+        this.arr = super.getState().slice();
+        this.arr.unshift(-1);
+        this.sort();
     }
 }

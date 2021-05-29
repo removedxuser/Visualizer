@@ -3,7 +3,7 @@ import React from "react";
 import { InsertionSort } from "../Classes/InsertionSort";
 import { generateCrumbs } from "../Components/BreadcrumbNavigation";
 import Controls from "../Components/Controls";
-import { CTypographyWithBreadcrumbs } from "../Components/HeaderComponents";
+import { CTypographyWithBreadcrumbs, TitleComponent } from "../Components/HeaderComponents";
 import VisualizationCanvas from "../Components/VisualizationCanvas";
 import { SortTypes } from "../interfaces/genericInterfaces";
 
@@ -18,9 +18,7 @@ export default function Mergesort() {
         <Box>
             <Box py="8px">
                 <CTypographyWithBreadcrumbs crumbs={crumbs}>
-                    <Box fontSize="2rem" component="span">
-                        Insertion Sort
-                    </Box>
+                    <TitleComponent title="Insertion Sort" tC="O(n^2)" />
                 </CTypographyWithBreadcrumbs>
             </Box>
             <VisualizationCanvas<InsertionSort>
@@ -29,7 +27,11 @@ export default function Mergesort() {
             >
                 {(instance) => (
                     <Box mt="8px">
-                        <Controls instance={instance} />
+                        <Controls
+                            instance={instance}
+                            defaultValues={{ size: 200, speed: 100 }}
+                            maxValues={{ size: 200, speed: 100 }}
+                        />
                     </Box>
                 )}
             </VisualizationCanvas>

@@ -16,7 +16,7 @@ export default class Visualizer {
     private waitTime: number = 0;
     private animationFrames: Array<AnimationFrame> = [];
     public isPaused: boolean = false;
-    protected readonly state: Array<number>;
+    protected state: Array<number>;
     private swapCount = 0;
     private comparisonCount = 0;
 
@@ -100,8 +100,7 @@ export default class Visualizer {
         return this;
     }
 
-    public start(wait: number = 0) {
-        this.waitTime = wait;
+    public start() {
         this.reset();
         this.animate();
     }
@@ -156,7 +155,18 @@ export default class Visualizer {
         this.waitTime = wait;
         if (!this.isPaused) {
             clearInterval(this.interval!);
-            this.animate();
+            this.trackerIndex && this.animate();
         }
+    }
+
+    public setSize(size: number) {
+        this.reset();
+        this.nodeCount = size;
+        this.state = this.generateNodes();
+        this.initialize();
+    }
+
+    public clearAnimationFrames() {
+        this.animationFrames = [];
     }
 }

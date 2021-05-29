@@ -7,6 +7,22 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { ThemeProvider } from "@material-ui/core";
 
 const theme = createMuiTheme({
+    overrides: {
+        MuiSlider: {
+            thumb: {
+                color: "black",
+            },
+            track: {
+                color: "white",
+            },
+            rail: {
+                color: "white",
+            },
+            valueLabel: {
+                color: "black",
+            },
+        },
+    },
     palette: {
         primary: {
             main: "#1b1f23",
@@ -16,7 +32,11 @@ const theme = createMuiTheme({
         },
         secondary: {
             main: "#FFD6C",
-            contrastText: "white",
+            contrastText: "black",
+        },
+        action: {
+            disabledBackground: "#585d63",
+            disabled: "black",
         },
     },
     typography: {
