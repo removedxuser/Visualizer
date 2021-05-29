@@ -16,6 +16,9 @@ const crumbs = generateCrumbs({
     href: "/mergesort",
 });
 
+const INITIAL_NODES = 100;
+const INITIAL_WAITTIME = 100;
+
 export default function Mergesort() {
     return (
         <Box>
@@ -24,12 +27,16 @@ export default function Mergesort() {
                     <TitleComponent title="Merge Sort" tC="O(nLogn)" />
                 </CTypographyWithBreadcrumbs>
             </Box>
-            <VisualizationCanvas<MergeSort> sortType={SortTypes.MergeSort} initialNodes={500}>
+            <VisualizationCanvas<MergeSort>
+                sortType={SortTypes.MergeSort}
+                initialNodes={INITIAL_NODES}
+                initialWaitTime={INITIAL_WAITTIME}
+            >
                 {(instance) => (
                     <Box mt="8px">
                         <Controls
                             instance={instance}
-                            defaultValues={{ size: 500, speed: 100 }}
+                            defaultValues={{ size: INITIAL_NODES, speed: INITIAL_WAITTIME - 90 }}
                             maxValues={{ size: 500, speed: 100 }}
                         />
                     </Box>

@@ -20,12 +20,15 @@ export default class Visualizer {
     private swapCount = 0;
     private comparisonCount = 0;
 
-    constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
+    constructor(nodeCount: number, canvas: HTMLCanvasElement, waitTime?: number) {
         this.nodeCount = nodeCount;
         this.canvasHeight = canvas.height;
         this.canvasWidth = canvas.width;
         this.cx = canvas.getContext("2d") as CanvasRenderingContext2D;
-        this.state = state || this.generateNodes();
+        this.state = this.generateNodes();
+        if (waitTime) {
+            this.waitTime = waitTime;
+        }
     }
 
     private generateNodes() {

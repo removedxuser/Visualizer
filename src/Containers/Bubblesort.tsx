@@ -13,6 +13,9 @@ const crumbs = generateCrumbs({
     href: "/bubblesort",
 });
 
+const INITIAL_NODES = 100;
+const INITIAL_WAITTIME = 100;
+
 export default function Mergesort() {
     return (
         <Box>
@@ -23,12 +26,16 @@ export default function Mergesort() {
                     </Box>
                 </CTypographyWithBreadcrumbs>
             </Box>
-            <VisualizationCanvas<BubbleSort> sortType={SortTypes.BubbleSort} initialNodes={350}>
+            <VisualizationCanvas<BubbleSort>
+                sortType={SortTypes.BubbleSort}
+                initialNodes={INITIAL_NODES}
+                initialWaitTime={INITIAL_WAITTIME}
+            >
                 {(instance) => (
                     <Box mt="8px">
                         <Controls
                             instance={instance}
-                            defaultValues={{ size: 200, speed: 100 }}
+                            defaultValues={{ size: INITIAL_NODES, speed: INITIAL_WAITTIME - 90 }}
                             maxValues={{ size: 200, speed: 100 }}
                         />
                     </Box>

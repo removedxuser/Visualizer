@@ -4,8 +4,8 @@ import Visualizer from "./Visualizer";
 export class MergeSort extends Visualizer {
     arr: Array<number> = [];
 
-    constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
-        super(nodeCount, canvas, state);
+    constructor(nodeCount: number, canvas: HTMLCanvasElement, waitTime: number) {
+        super(nodeCount, canvas, waitTime);
         this.arr = super.getState().slice();
         this.sort();
     }

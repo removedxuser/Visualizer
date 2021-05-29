@@ -5,8 +5,8 @@ import * as helperFns from "../helpers/helperFunctions";
 export class BubbleSort extends Visualizer {
     arr: Array<number> = [];
 
-    constructor(nodeCount: number, canvas: HTMLCanvasElement, state?: Array<number>) {
-        super(nodeCount, canvas, state);
+    constructor(nodeCount: number, canvas: HTMLCanvasElement, waitTime: number) {
+        super(nodeCount, canvas, waitTime);
         this.arr = super.getState().slice();
         this.sort();
     }
