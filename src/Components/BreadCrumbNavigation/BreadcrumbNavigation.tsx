@@ -1,5 +1,6 @@
 import { Link, Breadcrumbs } from "@material-ui/core";
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 export function generateCrumbs(...args: Array<Crumb>): Array<Crumb> {
     const defaultCrumb: Crumb = {
@@ -35,14 +36,11 @@ function BreadCrumbs(props: Props) {
     return (
         <Breadcrumbs aria-label="breadcrumb" style={{ color: "white" }}>
             {crumbs.map(({ crumbLabel, href, active }) => (
-                <Link
-                    color="textSecondary"
-                    href={href}
-                    style={!active ? { color: "lightgrey" } : {}}
-                    key={crumbLabel}
-                >
-                    {crumbLabel}
-                </Link>
+                <RouterLink to={href} key={crumbLabel}>
+                    <Link color="textSecondary" style={!active ? { color: "lightgrey" } : {}}>
+                        {crumbLabel}
+                    </Link>
+                </RouterLink>
             ))}
         </Breadcrumbs>
     );

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { SortTypes, unionSortClasses, sortClasses } from "../interfaces/genericInterfaces";
+import { SortTypes, unionSortClasses, sortClasses } from "../../interfaces/genericInterfaces";
 
 const { useEffect, useState, useRef } = React;
 

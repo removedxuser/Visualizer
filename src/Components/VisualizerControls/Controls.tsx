@@ -1,7 +1,7 @@
 import { Box, Button, Slider } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import { unionSortClasses } from "../interfaces/genericInterfaces";
+import { unionSortClasses } from "../../interfaces/genericInterfaces";
 
 interface Props {
     instance: unionSortClasses | null;

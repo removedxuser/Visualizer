@@ -1,6 +1,6 @@
 import { Box } from "@material-ui/core";
 import React from "react";
-import { ComputationalTrackerNode } from "../interfaces/genericInterfaces";
+import { ComputationalTrackerNode } from "../../interfaces/genericInterfaces";
 
 function ComputationalTrackerNodes() {
     return (

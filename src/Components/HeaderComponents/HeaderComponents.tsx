@@ -1,6 +1,6 @@
 import { Box, Typography, withStyles } from "@material-ui/core";
 import React from "react";
-import { BreadcrumbNavigation, Crumb } from "./BreadcrumbNavigation";
+import { BreadcrumbNavigation, Crumb } from "../BreadCrumbNavigation/BreadcrumbNavigation";
 import styles from "./HeaderComponent.module.css";
 
 const CTypography = withStyles({

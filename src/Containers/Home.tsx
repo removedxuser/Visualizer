@@ -1,26 +1,8 @@
 import { Box } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router";
-import { Tile } from "../Components/Tile";
-
-const __sortMetaData__: Array<{ name: string; route: string }> = [
-    {
-        name: "Merge Sort",
-        route: "/mergesort",
-    },
-    {
-        name: "Bubble Sort",
-        route: "/bubblesort",
-    },
-    {
-        name: "Insertion Sort",
-        route: "/insertionsort",
-    },
-    {
-        name: "Heap Sort",
-        route: "/heapsort",
-    },
-];
+import { Tile } from "../Components/Tile/Tile";
+import { __sortMetaData__ } from "../interfaces/searchMetaInfo";
 
 export default function Home() {
     const history = useHistory();

@@ -1,11 +1,14 @@
 import { Box } from "@material-ui/core";
 import React from "react";
 import { HeapSort } from "../Classes/HeapSort";
-import { generateCrumbs } from "../Components/BreadcrumbNavigation";
-import Controls from "../Components/Controls";
-import { CTypographyWithBreadcrumbs, TitleComponent } from "../Components/HeaderComponents";
-import VisualizationCanvas from "../Components/VisualizationCanvas";
+import Controls from "../Components/VisualizerControls/Controls";
+import {
+    CTypographyWithBreadcrumbs,
+    TitleComponent,
+} from "../Components/HeaderComponents/HeaderComponents";
+import VisualizationCanvas from "../Components/VisualizationCanvas/VisualizationCanvas";
 import { SortTypes } from "../interfaces/genericInterfaces";
+import { generateCrumbs } from "../Components/BreadCrumbNavigation/BreadcrumbNavigation";
 
 const crumbs = generateCrumbs({
     crumbLabel: "Heap Sort",

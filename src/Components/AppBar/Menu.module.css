@@ -1,0 +1,38 @@
+.root {
+    height: auto;
+    min-height: 80px;
+    max-height: 400px;
+    background-color: lightgrey;
+    opacity: 0.9;
+    color: black;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+.container {
+    width: 500px;
+    height: 0px;
+}
+
+.menuItem {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.nomenuItem {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuItem:hover {
+    transition: 0.2 ease;
+    background-color: black;
+    color: white;
+}
