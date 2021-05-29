@@ -37,7 +37,11 @@ function BreadCrumbs(props: Props) {
         <Breadcrumbs aria-label="breadcrumb" style={{ color: "white" }}>
             {crumbs.map(({ crumbLabel, href, active }) => (
                 <RouterLink to={href} key={crumbLabel}>
-                    <Link color="textSecondary" style={!active ? { color: "lightgrey" } : {}}>
+                    <Link
+                        color="textSecondary"
+                        style={!active ? { color: "lightgrey" } : {}}
+                        component="div"
+                    >
                         {crumbLabel}
                     </Link>
                 </RouterLink>

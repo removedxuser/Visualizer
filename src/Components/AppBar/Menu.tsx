@@ -27,13 +27,14 @@ export default function Menu(props: Props) {
         <div className={styles.container}>
             <div className={styles.root}>
                 {state.length ? (
-                    state.map((item) => (
+                    state.map((item, i) => (
                         <div
                             className={styles.menuItem}
                             onClick={() => {
                                 history.push(item.route);
                                 forceCloseMenu();
                             }}
+                            key={i}
                         >
                             {item.name}
                             <br />
